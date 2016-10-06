@@ -25,13 +25,19 @@ public class CiudadDaoTestCase {
 	
 	@Test
 	public void testObtener() {
+		
 		List<Ciudad> ciudades;
 		try{
+			
 			ciudades = dao.obtener();
 			assertTrue(ciudades.size()> 0);
+			
 		}catch (MyDaoExeption e) {
+			
 			fail(e.getMessage());
+			
 		}
+		
 	}
 
 }
