@@ -40,7 +40,7 @@ public class CiudadDaoTestCase {
 	}
 	
 	
-	@Test
+
 	public void testCrear(){
 		Ciudad ciudad;
 		ciudad = new Ciudad();
