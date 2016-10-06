@@ -11,8 +11,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.edu.udea.iw.dao.UsuarioDao;
+import com.edu.udea.iw.dto.Rol;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
+import com.edu.udea.iw.logicaNegocio.UsuarioBL;
+import com.edu.udea.iw.logicaNegocio.imp.UsuarioBLimp;
+import com.edu.udea.iw.utils.Hash;
 
 
 
@@ -24,6 +28,8 @@ public class UsuarioDaoTestCase {
 
 	@Autowired  
 	UsuarioDao dao;
+	@Autowired
+	UsuarioBL usuarioBL;
 	
 	@Test
 	public void testObtener() {
@@ -53,5 +59,42 @@ public class UsuarioDaoTestCase {
 			fail(e.getMessage());
 		}
 	}
+	
+	
+	@Test 
+	public void testUsuarioBL(){
+		//bb2ab58934e17e79be1353b34f9ddaf8c9d5932e
+		try {
+			assertTrue(usuarioBL.validarUP("Camilo", "hola"));
+		} catch (MyDaoExeption e) {
+			// TODO: handle exception
+			fail(e.getMessage());
+		}
+		
+	}
 
+	
+	
+	public void testCrear(){
+		
+		Usuario usuario = new Usuario();
+		usuario.setNombres("Camilo");
+		usuario.setApellidos("Posada Angel");
+		usuario.setLogin("Camilo");
+		Rol rol = new Rol();
+		rol.setCodigo("ADM");
+		usuario.setRol(rol);
+		//Contraseña
+		usuario.setContrasena(Hash.getHash("hola", "SHA1"));
+		try {
+			dao.guardar(usuario);
+			
+		} catch (MyDaoExeption e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		
+		
+		
+	}
 }

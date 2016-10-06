@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 
 import com.edu.udea.iw.dao.UsuarioDao;
@@ -55,5 +56,28 @@ public class UsuarioDaoImpHibernate implements UsuarioDao {
 		
 		return usuario;
 	}
+
+	@Override
+	public void guardar(Usuario usuario) throws MyDaoExeption {
+		// TODO Auto-generated method stub
+		
+		Session session = null;
+		Transaction transaction = null;
+		
+		try {
+			
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.save(usuario); 
+			transaction.commit();
+			
+		} catch (HibernateException	 e) {
+			throw new MyDaoExeption(e);
+		}
+		
+		
+	}
+
+	
 
 }

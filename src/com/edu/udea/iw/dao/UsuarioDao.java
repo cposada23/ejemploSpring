@@ -15,4 +15,6 @@ public interface UsuarioDao {
 	public List<Usuario> obtener() throws MyDaoExeption;
 	
 	public Usuario obtenerPorLogin(String log) throws MyDaoExeption;
+	
+	public void guardar(Usuario usuario) throws MyDaoExeption;
 }
