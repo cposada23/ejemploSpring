@@ -45,4 +45,12 @@
 		<property name="sessionFactory" ref="sessionFactory"></property> <!--  Le injecte a cidudad dao el session factory -->
 	</bean>
 	
+	<bean id="usuarioDao" class="com.edu.udea.iw.dao.hibernate.UsuarioDaoImpHibernate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="clienteDao" class="com.edu.udea.iw.dao.hibernate.ClienteDaoImpHibernate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 </beans>

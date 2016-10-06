@@ -11,48 +11,58 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.edu.udea.iw.dao.CiudadDao;
-import com.edu.udea.iw.dto.Ciudad;
+import com.edu.udea.iw.dao.ClienteDao;
+import com.edu.udea.iw.dto.Cliente;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
+
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations=("classpath:configuracion.xml")) //Para que coja mi archivo de configuracion
-public class CiudadDaoTestCase {
+
+@ContextConfiguration(locations=("classpath:configuracion.xml"))
+public class ClienteDaoeTestCase {
 
 	
 	@Autowired  
-	CiudadDao dao;
+	ClienteDao dao;
 	
-	
+	public void testCrear() {
+		fail("Not yet implemented");
+	}
+
 	@Test
 	public void testObtener() {
 		
-		List<Ciudad> ciudades;
+		List<Cliente> clientes = null;
 		try{
-			ciudades = dao.obtener();
-			assertTrue(ciudades.size()> 0);
+			
+			clientes = dao.obtener();
+			assertTrue(clientes.size()> 0);
+			
 		}catch (MyDaoExeption e) {
 			
 			fail(e.getMessage());
 			
 		}
-		
 	}
+
 	
-	
+	public void testEliminar() {
+		fail("Not yet implemented");
+	}
+
 	@Test
-	public void testCrear(){
-		Ciudad ciudad;
-		ciudad = new Ciudad();
-		ciudad.setCodigo(433L);
-		ciudad.setNombre("Lima");
-		ciudad.setCodigoArea("435");
+	public void testObtenerPorCedula() {
+		
+		Cliente cliente = null;
 		try {
-			dao.guardar(ciudad);
-			
+			cliente = dao.obtenerPorCedula("10202030");
+			assertTrue(cliente.getNombres().equals("Camilo"));
 		} catch (MyDaoExeption e) {
+			// TODO: handle exception
 			fail(e.getMessage());
 		}
+		
 	}
 
 }

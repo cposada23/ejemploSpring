@@ -24,8 +24,7 @@ import com.edu.udea.iw.exeption.MyDaoExeption;
  */
 public class ClienteDaoImpHibernate implements ClienteDao {
 	
-private SessionFactory sessionFactory; 
-	
+	private SessionFactory sessionFactory; 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
