@@ -1,8 +1,8 @@
 package com.edu.udea.iw.utils;
 
 /**
- * Clase para crear un hash
- * @author cposa
+ * Clase para crear un hash a partir de string 
+ * @author camilo posada
  *
  */
 

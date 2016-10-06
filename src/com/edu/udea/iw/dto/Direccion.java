@@ -1,9 +1,15 @@
 package com.edu.udea.iw.dto;
 
+/**
+ * dto para la tabla direccion 
+ * @author cposa
+ *
+ */
+
 public class Direccion {
 
 	//La clave primaria es compuesta 
-	//Creo un dto que contanga los campos de la clace primaria 
+	//Creo un dto que contanga los campos de la clave primaria 
 	private DireccionID id;
 	private String direccion;
 	private Ciudad ciudad;
