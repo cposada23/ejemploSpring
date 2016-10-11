@@ -3,7 +3,7 @@ package com.edu.udea.iw.logicaNegocio;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 /**
- * Clase para validar la logica del negocio 
+ * Clase para validar la logica del negocio con respecto a los usuarios
  * @author cposa
  *
  */

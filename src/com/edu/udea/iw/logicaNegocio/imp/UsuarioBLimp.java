@@ -38,7 +38,7 @@ public class UsuarioBLimp implements UsuarioBL {
 	@Override
 	public boolean validarUP(String usuario, String pws) throws MyDaoExeption {
 		// TODO Auto-generated method stub
-		System.out.println(cifrar.encrypt(pws));
+		//System.out.println(cifrar.encrypt(pws));
 		
 		Usuario  user = usuarioDao.obtenerPorLogin(usuario);
 		

@@ -59,7 +59,9 @@ public class UsuarioDaoTestCase {
 		}
 	}
 	
-	
+	/**
+	 * test para validar usuario y contraseña en la bd
+	 */
 	@Test 
 	public void testUsuarioBL(){
 		try {
@@ -71,7 +73,7 @@ public class UsuarioDaoTestCase {
 	}
 
 	
-	
+	@Test
 	public void testCrear(){
 		
 		Usuario usuario = new Usuario();
