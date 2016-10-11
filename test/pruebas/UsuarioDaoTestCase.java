@@ -47,7 +47,6 @@ public class UsuarioDaoTestCase {
 	}
 
 	@Test
-	
 	public void testObtenerPorLogin() {
 		
 		Usuario usuario = null;
@@ -63,14 +62,12 @@ public class UsuarioDaoTestCase {
 	
 	@Test 
 	public void testUsuarioBL(){
-		//bb2ab58934e17e79be1353b34f9ddaf8c9d5932e
 		try {
 			assertTrue(usuarioBL.validarUP("Elver", "elver"));
 		} catch (MyDaoExeption e) {
 			// TODO: handle exception
 			fail(e.getMessage());
 		}
-		
 	}
 
 	
