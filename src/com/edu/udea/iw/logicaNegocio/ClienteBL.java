@@ -1,5 +1,7 @@
 package com.edu.udea.iw.logicaNegocio;
 
+import java.util.List;
+
 import com.edu.udea.iw.dto.Cliente;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
@@ -17,6 +19,19 @@ public interface ClienteBL {
 	 */ 
 	public void crearCliente(Cliente cliente) throws MyDaoExeption;
 	
+	/**
+	 * 
+	 * @param cedula
+	 * @param nombres
+	 * @param apellidos
+	 * @param email
+	 * @param usuarioCrea
+	 * @throws MyDaoExeption
+	 */
+	
 	public void crearCliente2(String cedula, String nombres, String apellidos, String email, String usuarioCrea) throws MyDaoExeption;
 
+	
+	
+	public List<Cliente> obtener() throws MyDaoExeption;
 } 

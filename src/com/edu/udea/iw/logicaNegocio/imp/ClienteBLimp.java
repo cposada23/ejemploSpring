@@ -1,6 +1,7 @@
 package com.edu.udea.iw.logicaNegocio.imp;
 
 import java.util.Date;
+import java.util.List;
 
 import com.edu.udea.iw.dao.ClienteDao;
 import com.edu.udea.iw.dao.UsuarioDao;
@@ -91,6 +92,11 @@ public class ClienteBLimp implements ClienteBL {
 		
 		
 		clienteDao.crear(cliente);
+	}
+
+	@Override
+	public List<Cliente> obtener() throws MyDaoExeption {
+		return clienteDao.obtener();
 	}
 
 }

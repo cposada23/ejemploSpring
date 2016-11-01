@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27/09/2016 01:15:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="co.edu.udea.iw.dto.Cliente" table="clientes">
+        <id name="cedula" type="java.lang.String">
+            <column name="CEDULA" />
+            <generator class="assigned" />
+        </id>
+        <property name="apellidos" type="java.lang.String">
+            <column name="APELLIDOS" />
+        </property>
+        <property name="nombres" type="java.lang.String">
+            <column name="NOMBRES" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <many-to-one name="usuarioCrea" class="co.edu.udea.iw.dto.Usuario" fetch="join">
+            <column name="USUARIOCREA" />
+        </many-to-one>
+        <property name="fechaCreacion" type="java.util.Date">
+            <column name="FECHACREACION" />
+        </property>
+        <many-to-one name="usuarioModifica" class="co.edu.udea.iw.dto.Usuario" fetch="join">
+            <column name="USUARIOMODIFICA" />
+        </many-to-one>
+        <property name="fechaModificacion" type="java.util.Date">
+            <column name="FECHAMODIFICACION" />
+        </property>
+        <property name="eliminado" type="java.lang.Boolean">
+            <column name="ELIMINADO" />
+        </property>
+        <many-to-one name="usuarioElimina" class="co.edu.udea.iw.dto.Usuario" fetch="join">
+            <column name="USUARIOELIMINA" />
+        </many-to-one>
+        <property name="fechaEliminacion" type="java.util.Date">
+            <column name="FECHAELIMINACION" />
+        </property>
+        
+        <set name="direcciones">
+        	<key column="cedula"></key>
+        	<one-to-many class="co.edu.udea.iw.dto.Direccion"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

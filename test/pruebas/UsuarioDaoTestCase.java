@@ -76,16 +76,20 @@ public class UsuarioDaoTestCase {
 	@Test
 	public void testCrear(){
 		
-		Usuario usuario = new Usuario();
-		usuario.setNombres("Camilo");
-		usuario.setApellidos("Posada Angel");
-		usuario.setLogin("Camilo");
-		Rol rol = new Rol();
-		rol.setCodigo("ADM");
-		usuario.setRol(rol);
+		
 		//Contraseña
-		usuario.setContrasena(Hash.getHash("hola", "SHA1"));
+		
 		try {
+			Usuario usuario = new Usuario();
+			Usuario usuarioTest = dao.obtenerPorLogin("elver");
+			usuario.setNombres("Camilo");
+			usuario.setApellidos("Posada Angel");
+			usuario.setLogin("otromas");
+			Rol rol = usuarioTest.getRol();
+			System.out.println("codigo" + rol.getCodigo());
+			//rol.setCodigo("ADM");
+			usuario.setRol(rol);
+			usuario.setContrasena(Hash.getHash("hola", "SHA1"));
 			dao.guardar(usuario);
 			
 		} catch (MyDaoExeption e) {
