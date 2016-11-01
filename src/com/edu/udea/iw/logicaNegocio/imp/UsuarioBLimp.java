@@ -42,11 +42,29 @@ public class UsuarioBLimp implements UsuarioBL {
 		
 		Usuario  user = usuarioDao.obtenerPorLogin(usuario);
 		
+		if(user == null){
+			return false;
+		}
+		
 		if(user.getContrasena().equals(cifrar.encrypt(pws))){
 			return true;
 		}
 		
 		return false;
+	}
+
+	@Override
+	public Usuario validar(String login, String pws) throws MyDaoExeption {
+		Usuario  user = usuarioDao.obtenerPorLogin(login);
+		
+		if(user == null){
+			throw new MyDaoExeption("No se encontro el usuario", null);
+		}
+		
+		if(user.getContrasena().equals(cifrar.encrypt(pws))){
+			return user;
+		}
+		throw new MyDaoExeption("Contraseña mala", null);
 	}
 
 }
